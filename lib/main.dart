@@ -42,6 +42,7 @@ class Mobile extends StatelessWidget {
     );
   }
 }
+///change
 class Info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
