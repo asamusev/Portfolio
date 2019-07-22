@@ -54,7 +54,7 @@ class Info extends StatelessWidget {
             backgroundImage: NetworkImage("https://basik.ru/images/third_eye/short.jpg"),
             ),
             Text('Artem Samusev',style: TextStyle(fontSize: 26, fontWeight: FontWeight.w300),),
-            Text('Informatick'),
+            Text('ITG Specialists'),
           ],);
   }
 }
@@ -75,7 +75,7 @@ class InfoArea extends StatelessWidget {
           Text('Контакты', style: TextStyle(fontSize: 16)),
           ],),
               ),
-        Expanded(child: Center(child: Container(width: 250, child: Text('Привет, меня зовут Артем и я учусь в гимназии №1 им. А.А.Иноземцева'))))
+        Expanded(child: Center(child: Container(width: 250, child: Text('Привет, меня зовут Артем и я учусь в гимназии №1 им. А.А.Иноземцева. Я перешел в физмат класс, со мной можно связаться по почте *********; и по телефону *******.'))))
               ],
     );
   }
