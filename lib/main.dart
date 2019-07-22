@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,28 +15,94 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Desktop extends StatelessWidget {
+class Desktop extends StatefulWidget {
+  @override
+  _DesktopState createState() => _DesktopState();
+}
+
+class _DesktopState extends State<Desktop> {
+  Widget body = About();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
       body: Row(children: <Widget>[
         Expanded(child: Info()),
-        Expanded(child: InfoArea()),
+        Expanded(child: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+            FlatButton(
+              child: Text('Обо мне', style: TextStyle(fontSize: 16)), 
+              onPressed: () {setState(() {
+                              body = About(); 
+                            }); },),
+            Spacer(),
+            FlatButton(
+              child: Text('Работы', style: TextStyle(fontSize: 16)),
+             onPressed: () {setState(() {
+                            body = Work(); 
+                            }); },),
+            Spacer(),
+            FlatButton(
+              child: Text('Контакты', style: TextStyle(fontSize: 16)),
+              onPressed: () {setState(() {
+                            body = Contact(); 
+                            }); },),
+            ],),
+              body,
+            ],
+          ),
+        )),
       ],),
       ),
     );
   }
 }
 
-class Mobile extends StatelessWidget {
+class Mobile extends StatefulWidget {
+  @override
+  _MobileState createState() => _MobileState();
+}
+
+class _MobileState extends State<Mobile> {
+  Widget body = About();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
       body: Column(children: <Widget>[
-        Expanded(flex: 3, child: Info()),
-        Expanded(flex: 2, child: InfoArea()),
+        Expanded(child: Info()),
+        Expanded(child: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+            FlatButton(
+              child: Text('Обо мне', style: TextStyle(fontSize: 16)), 
+              onPressed: () {setState(() {
+                              body = About(); 
+                            }); },),
+            Spacer(),
+            FlatButton(
+              child: Text('Работы', style: TextStyle(fontSize: 16)),
+             onPressed: () {setState(() {
+                            body = Work(); 
+                            }); },),
+            Spacer(),
+            FlatButton(
+              child: Text('Контакты', style: TextStyle(fontSize: 16)),
+              onPressed: () {setState(() {
+                            body = Contact(); 
+                            }); },),
+            ],),
+              body,
+         ],
+          ),
+        )),
       ],),
       ),
     );
@@ -59,24 +125,53 @@ class Info extends StatelessWidget {
   }
 }
 
-class InfoArea extends StatelessWidget {
+
+class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-              children: <Widget>[ Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-          Text('Обо мне', style: TextStyle(fontSize: 16)),
-          Spacer(),
-          Text('Работы', style: TextStyle(fontSize: 16)),
-          Spacer(),
-          Text('Контакты', style: TextStyle(fontSize: 16)),
-          ],),
-              ),
-        Expanded(child: Center(child: Container(width: 250, child: Text('Привет, меня зовут Артем и я учусь в гимназии №1 им. А.А.Иноземцева. Я перешел в физмат класс, со мной можно связаться по почте *********; и по телефону *******.'))))
-              ],
+    return Expanded(
+          child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end, 
+        children: <Widget>[
+Expanded(child: Center(child: Container(width: 250, child: Text('Привет, меня зовут Артем и я учусь в гимназии №1 им. А.А.Иноземцева. Я перешел в физмат класс, со мной можно связаться по почте *********; и по телефону *******.')))),
+        ],
+        ),
+      ),
     );
   }
 }
+
+class Work extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+          child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end, 
+        children: <Widget>[
+Expanded(child: Center(child: Container(width: 250, child: Text("Work")))),
+        ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class Contact extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+          child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end, 
+        children: <Widget>[
+Expanded(child: Center(child: Container(width: 250, child: Text('Contact')))),
+        ],
+        ),
+      ),
+    );
+  }
+}
+
